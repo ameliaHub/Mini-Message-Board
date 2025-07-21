@@ -22,6 +22,9 @@ WHERE NOT EXISTS (SELECT 1 FROM messages WHERE username = 'Luis' AND content = '
 async function main() {
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   });
 
   try {
